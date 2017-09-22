@@ -1,0 +1,290 @@
+body{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #414042;
+}
+
+@font-face {
+	font-family: 'BebasNeue';
+    src: url("./fonts/BebasNeue.otf") format("opentype");
+	
+}
+
+@font-face {
+	font-family: 'PlayfairDisplay-Regular';
+	src: url('./fonts/PlayfairDisplay-Regulars.otf');
+	
+}
+
+@font-face {
+	font-family: 'ProximaNova-Light';
+	src: url('./fonts/ProximaNova-Light.otf');
+	
+}
+
+@font-face {
+	font-family: 'ProximaNova-Regular';
+	src: url('./fonts/ProximaNova-Regular.otf');
+	
+}
+
+.dg-container{
+	width: 100%;
+    padding: 100px 0;
+	position: relative;
+    margin: 0 auto;
+    
+}
+.dg-wrapper{
+	width: 378px;
+	
+	margin: 0 auto;
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+.dg-wrapper a{
+	width: 378px;
+	cursor: default;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+    z-index: 50;
+}
+
+/*
+.dg-wrapper a.dg-center{
+    z-index:80;
+}
+*/
+.dg-wrapper a.dg-transition{
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.dg-wrapper a img{
+	display: block;
+}
+/*
+.dg-wrapper a div{
+	font-style: italic;
+	text-align: center;
+	line-height: 50px;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	color: #333;
+	font-size: 16px;
+	width: 100%;
+	bottom: -55px;
+	display: none;
+	position: absolute;
+}
+.dg-wrapper a.dg-center div{
+	display: block;
+}
+*/
+.dg-container nav{
+/*
+	width: 58px;
+	position: absolute;
+	z-index: 1000;
+	bottom: 40px;
+	left: 50%;
+	margin-left: -29px;
+*/
+    
+    width: 64%;
+    position: absolute;
+    z-index: 1000;
+    bottom: 40px;
+    left: 24%;
+}
+/*
+.dg-container nav span{
+	text-indent: -9000px;
+	float: left;
+	cursor:pointer;
+	width: 24px;
+	height: 25px;
+	opacity: 0.8;
+	background: transparent url(../images/arrows.png) no-repeat top left;
+}
+*/
+
+.text-comp{    
+    color: #999999;
+    font-family: ProximaNova-Light;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+    
+}
+
+.text-comp span{
+    color:#fff;
+}
+
+.dg-container nav span{
+    cursor: pointer;
+}
+
+.dg-prev {
+    background-image: url(../images/arrow-left.png);
+    width: 50px !important;
+    /* background-size: 80px 80px; */
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: -47px;
+    top: 64px
+        
+      } 
+
+.dg-next {
+    background-image: url(../images/arrow-right.png);
+    width: 50px !important;
+    /* background-size: 80px 80px; */
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right:150px;
+    top: 64px
+        
+      }  
+        
+.dg-container nav span:hover{
+	opacity: 1;
+}
+.dg-container nav span.dg-next{
+	background-position: top right;
+	margin-left: 10px;
+}
+
+
+/*
+.dg-wrapper a:after{
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .45);
+}
+*/
+
+
+.dg-wrapper a.dg-center:after, .dg-wrapper a.dg-center{
+    background-color: transparent !important;
+    z-index: 80 !important;
+   
+        
+}
+
+.dg-wrapper a img{
+    width:378px;
+    height: 272px;
+}
+
+.dg-wrapper .content-sec h5{
+    font-size: 22px;
+    font-family: 'Playfair Display';
+    color: #414042;
+}
+
+.dg-wrapper .content-sec{
+    padding: 18px;
+    background-color: #fff;
+}
+
+.dg-wrapper .content-sec p{
+        color: #808082;
+    font-family: ProximaNova-Regular;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+
+.dg-wrapper .content-sec button{
+       background-image: linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    background-image: linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    background-image: -o-linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    background-image: -moz-linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    background-image: -webkit-linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    background-image: -ms-linear-gradient(bottom , #FC9E5F 50%, #FB9043 51%);
+    padding: 10px 35px;
+    border: 0;
+    color: #fff;
+    margin-top: 18px;
+    font-size: 27px;
+    font-family: BebasNeue;
+    text-transform: uppercase;
+
+}
+
+.dg-wrapper .tally{
+    width: 132px;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    height: 64px;
+}
+
+.tally-counter{
+    position: absolute;
+        top: -5px;
+    right: 10px;
+    color: #fff;
+    font-family: BebasNeue;
+    
+}
+.tally-counter span{
+    font-size: 33px;
+    margin-left: 10px;
+}
+.tally-counter p{
+        font-size: 15px;
+    margin-left: -6px;
+    letter-spacing: 0.04em;
+}
+
+
+.dg-prev {
+    background-image: url(../images/arrow-left.png);
+    width: 50px !important;
+    /* background-size: 80px 80px; */
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    }
+
+/*Responsive css */
+
+@media only screen and (max-width:480px){
+    
+    p.text-comp{
+        font-size: 18px;
+    }
+    .dg-wrapper .content-sec button{
+        width:100%;
+    }
+}
