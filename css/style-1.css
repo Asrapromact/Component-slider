@@ -1,3 +1,9 @@
+html,body{
+    height:100%;
+    width: 100%;
+    overflow: auto;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -31,14 +37,16 @@ body{
 
 .dg-container{
 	width: 100%;
-    padding: 100px 0;
+    padding: 100px 0 0 0;
 	position: relative;
     margin: 0 auto;
+    
     
 }
 .dg-wrapper{
 	width: 378px;
-	
+	min-height: 460px;
+    height: auto;
 	margin: 0 auto;
 	position: relative;
 	-webkit-transform-style: preserve-3d;
@@ -79,50 +87,16 @@ body{
 .dg-wrapper a img{
 	display: block;
 }
-/*
-.dg-wrapper a div{
-	font-style: italic;
-	text-align: center;
-	line-height: 50px;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
-	color: #333;
-	font-size: 16px;
-	width: 100%;
-	bottom: -55px;
-	display: none;
-	position: absolute;
-}
-.dg-wrapper a.dg-center div{
-	display: block;
-}
-*/
-.dg-container nav{
-/*
-	width: 58px;
-	position: absolute;
-	z-index: 1000;
-	bottom: 40px;
-	left: 50%;
-	margin-left: -29px;
-*/
-    
-    width: 64%;
+
+.dg-container nav.dk-icons{    
+    width: 46%;
     position: absolute;
     z-index: 1000;
-    bottom: 40px;
-    left: 24%;
+    top: 50%;
+    left: 27%;
+    margin: 0 auto;
 }
-/*
-.dg-container nav span{
-	text-indent: -9000px;
-	float: left;
-	cursor:pointer;
-	width: 24px;
-	height: 25px;
-	opacity: 0.8;
-	background: transparent url(../images/arrows.png) no-repeat top left;
-}
-*/
+
 
 .text-comp{    
     color: #999999;
@@ -141,20 +115,19 @@ body{
     cursor: pointer;
 }
 
-.dg-prev {
+nav.dk-icons .dg-prev {
     background-image: url(../images/arrow-left.png);
     width: 50px !important;
-    /* background-size: 80px 80px; */
     background-repeat: no-repeat;
     width: 100px;
     height: 100px;
     position: absolute;
-    left: -47px;
-    top: 64px
+    left: 0;
+   
         
       } 
 
-.dg-next {
+nav.dk-icons .dg-next {
     background-image: url(../images/arrow-right.png);
     width: 50px !important;
     /* background-size: 80px 80px; */
@@ -162,8 +135,8 @@ body{
     width: 100px;
     height: 100px;
     position: absolute;
-    right:150px;
-    top: 64px
+    right:0;
+   
         
       }  
         
@@ -174,21 +147,6 @@ body{
 	background-position: top right;
 	margin-left: 10px;
 }
-
-
-/*
-.dg-wrapper a:after{
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: -6px;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, .45);
-}
-*/
 
 
 .dg-wrapper a.dg-center:after, .dg-wrapper a.dg-center{
@@ -236,7 +194,7 @@ body{
     font-size: 27px;
     font-family: BebasNeue;
     text-transform: uppercase;
-
+cursor: pointer;
 }
 
 .dg-wrapper .tally{
@@ -266,25 +224,107 @@ body{
 }
 
 
-.dg-prev {
-    background-image: url(../images/arrow-left.png);
-    width: 50px !important;
-    /* background-size: 80px 80px; */
-    background-repeat: no-repeat;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    }
 
+
+.mb-icons  {
+    width: 58px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -29px;
+     }
+
+.mb-icons span{
+        text-indent: -9000px;
+    float: left;
+    cursor: pointer;
+    width: 24px;
+    height: 25px;
+    opacity: 0.8;
+    background: transparent url(../images/arrows.png) no-repeat top left;
+}
+
+.mb-icons span:hover{
+    opacity: 1;
+}
+     
+.carousel-indicators {
+    
+    margin-top: 15px;
+    z-index: 15;
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+  }  
+.carousel-indicators li{
+    display: inline-block;
+    margin: 1px;
+    cursor: pointer;
+    background-color: #000\9;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    color: #fff;
+    line-height: 15px;
+    font-size: 14px;
+    padding: 4px 10px;
+}
 /*Responsive css */
 
 @media only screen and (max-width:480px){
     
     p.text-comp{
         font-size: 18px;
+        padding: 0px 12px;
+    }
+    
+    .dg-wrapper{
+        width: 100%;
+    }
+    
+    .dg-wrapper a{
+        width:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .dg-wrapper a img{
+        width: 100%;
     }
     .dg-wrapper .content-sec button{
         width:100%;
     }
+    
+    nav.dk-icons{
+        display: none;
+    }
+    
+    
+}
+
+@media only screen and (min-width:481px) and (max-width:800px){
+    .dg-container nav.dk-icons{    width: 69%;
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 16%;
+    margin: 0 auto;
+  }      
+}
+@media only screen and (min-width:481px){
+    .carousel-indicators{
+        display: none;
+    }
+}
+
+
+
+@media only screen and (max-width:370px){
+    
+  .carousel-indicators{ margin-top: 57px;
+    }
+    
 }

@@ -1,23 +1,18 @@
-/**
- * jquery.gallery.js
- * http://www.codrops.com
- *
- * Copyright 2011, Pedro Botelho / Codrops
- * Free to use under the MIT license.
- *
- * Date: Mon Jan 30 2012
- */
 
 (function( $, undefined ) {
 	
 	/*
 	 * Gallery object.
 	 */
+    
+     var windowWidth= $(window).width();
+		
 	$.Gallery 				= function( options, element ) {
+        
 	
 		this.$el	= $( element );
 		this._init( options );
-		
+        
 	};
 	
 	$.Gallery.defaults 		= {
@@ -35,6 +30,8 @@
 			this.support3d		= Modernizr.csstransforms3d;
 			this.support2d		= Modernizr.csstransforms;
 			this.supportTrans	= Modernizr.csstransitions;
+           
+        
 			
 			this.$wrapper		= this.$el.find('.dg-wrapper');
 			
@@ -44,6 +41,9 @@
 			this.$nav			= this.$el.find('nav');
 			this.$navPrev		= this.$nav.find('.dg-prev');
 			this.$navNext		= this.$nav.find('.dg-next');
+            
+       
+           
 			
 			// minimum of 3 items
 			if( this.itemsCount < 3 ) {
@@ -94,24 +94,54 @@
 			// current item is not changed
 			// left and right one are rotated and translated
 			var leftCSS, rightCSS, currentCSS;
+                 var windowWidth = $(window).width();
+            
+      
 			
-			if( this.support3d && this.supportTrans ) {
+			if( windowWidth > 481 && this.support3d && this.supportTrans ) {
 			
 				leftCSS 	= {
-					'-webkit-transform'	: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-					'-moz-transform'	: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-					'-o-transform'		: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-					'-ms-transform'		: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-					'transform'			: 'translateX(-330px) translateY(40px) translateZ(-200px)',
+					'-webkit-transform'	: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+					'-moz-transform'	: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+					'-o-transform'		: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+					'-ms-transform'		: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+					'transform'			: 'translateX(-330px) translateY(0px) translateZ(-200px)',
                     backgroundColor     : 'rgba(0,0,0,0,75)' 
 				};
 				
 				rightCSS	= {
-					'-webkit-transform'	: 'translateX(330px) translateY(40px) translateZ(-200px)',
-					'-moz-transform'	: 'translateX(330px) translateY(40px) translateZ(-200px)',
-					'-o-transform'		: 'translateX(330px) translateY(40px) translateZ(-200px)',
-					'-ms-transform'		: 'translateX(330px) translateY(40px) translateZ(-200px)',
-					'transform'			: 'translateX(330px) translateY(40px) translateZ(-200px)',
+					'-webkit-transform'	: 'translateX(330px) translateY(0px) translateZ(-200px)',
+					'-moz-transform'	: 'translateX(330px) translateY(0px) translateZ(-200px)',
+					'-o-transform'		: 'translateX(330px) translateY(0px) translateZ(-200px)',
+					'-ms-transform'		: 'translateX(330px) translateY(0px) translateZ(-200px)',
+					'transform'			: 'translateX(330px) translateY(0px) translateZ(-200px)',
+                    backgroundColor     : 'rgba(0,0,0,0,75)'
+				};
+				
+				leftCSS.opacity		= 0.45;
+				leftCSS.visibility	= 'visible';
+				rightCSS.opacity	= 0.45;
+				rightCSS.visibility	= 'visible';
+			
+			}
+            
+            else if( windowWidth <= 480 && this.support3d && this.supportTrans ) {
+			
+				leftCSS 	= {
+					'-webkit-transform'	: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-moz-transform'	: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-o-transform'		: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-ms-transform'		: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'transform'			: 'translateX(0px) translateY(40px) translateZ(-200px)',
+                    backgroundColor     : 'rgba(0,0,0,0,75)' 
+				};
+				
+				rightCSS	= {
+					'-webkit-transform'	: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-moz-transform'	: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-o-transform'		: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'-ms-transform'		: 'translateX(0px) translateY(40px) translateZ(-200px)',
+					'transform'			: 'translateX(0px) translateY(40px) translateZ(-200px)',
                     backgroundColor     : 'rgba(0,0,0,0,75)'
 				};
 				
@@ -249,7 +279,7 @@
 		},
 		_getCoordinates		: function( position ) {
 			
-			if( this.support3d && this.supportTrans ) {
+			if( windowWidth >= 481 && this.support3d && this.supportTrans ) {
 			
 				switch( position ) {
 					case 'outleft':
@@ -276,22 +306,22 @@
 						break;
 					case 'left':
 						return {
-							'-webkit-transform'	: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-							'-moz-transform'	: 'translateX(-330px) translateY(40px)  translateZ(-200px) ',
-							'-o-transform'		: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-							'-ms-transform'		: 'translateX(-330px) translateY(40px) translateZ(-200px)',
-							'transform'			: 'translateX(-330px) translateY(40px) translateZ(-200px)',
+							'-webkit-transform'	: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+							'-moz-transform'	: 'translateX(-330px) translateY(0px)  translateZ(-200px) ',
+							'-o-transform'		: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+							'-ms-transform'		: 'translateX(-330px) translateY(0px) translateZ(-200px)',
+							'transform'			: 'translateX(-330px) translateY(0px) translateZ(-200px)',
 							'opacity'			: 0.45,
 							'visibility'		: 'visible'
 						};
 						break;
 					case 'right':
 						return {
-							'-webkit-transform'	: 'translateX(330px) translateY(40px) translateZ(-200px) ',
-							'-moz-transform'	: 'translateX(330px) translateY(40px) translateZ(-200px) ',
-							'-o-transform'		: 'translateX(330px) translateY(40px) translateZ(-200px) ',
-							'-ms-transform'		: 'translateX(330px) translateY(40px) translateZ(-200px) ',
-							'transform'			: 'translateX(330px)  translateY(40px) translateZ(-200px) ',
+							'-webkit-transform'	: 'translateX(330px) translateY(0px) translateZ(-200px) ',
+							'-moz-transform'	: 'translateX(330px) translateY(0px) translateZ(-200px) ',
+							'-o-transform'		: 'translateX(330px) translateY(0px) translateZ(-200px) ',
+							'-ms-transform'		: 'translateX(330px) translateY(0px) translateZ(-200px) ',
+							'transform'			: 'translateX(330px)  translateY(0px) translateZ(-200px) ',
 							'opacity'			: 0.45,
 							'visibility'		: 'visible'
 						};
@@ -310,70 +340,70 @@
 				};
 			
 			}
-			else if( this.support2d && this.supportTrans ) {
+            
+            	else if( windowWidth <= 480  &&  this.support3d && this.supportTrans ) {
+      
 			
 				switch( position ) {
 					case 'outleft':
 						return {
-							'-webkit-transform'	: 'translate(-450px) scale(0.7)',
-							'-moz-transform'	: 'translate(-450px) scale(0.7)',
-							'-o-transform'		: 'translate(-450px) scale(0.7)',
-							'-ms-transform'		: 'translate(-450px) scale(0.7)',
-							'transform'			: 'translate(-450px) scale(0.7)',
+							'-webkit-transform'	: 'translateX(-450px) translateZ(-300px) rotateY(45deg)',
+							'-moz-transform'	: 'translateX(-450px) translateZ(-300px) rotateY(45deg)',
+							'-o-transform'		: 'translateX(-450px) translateZ(-300px) rotateY(45deg)',
+							'-ms-transform'		: 'translateX(-450px) translateZ(-300px) rotateY(45deg)',
+							'transform'			: 'translateX(-450px) translateZ(-300px) rotateY(45deg)',
 							'opacity'			: 0,
 							'visibility'		: 'hidden'
 						};
 						break;
 					case 'outright':
 						return {
-							'-webkit-transform'	: 'translate(450px) scale(0.7)',
-							'-moz-transform'	: 'translate(450px) scale(0.7)',
-							'-o-transform'		: 'translate(450px) scale(0.7)',
-							'-ms-transform'		: 'translate(450px) scale(0.7)',
-							'transform'			: 'translate(450px) scale(0.7)',
+							'-webkit-transform'	: 'translateX(450px) translateZ(-300px) rotateY(-45deg)',
+							'-moz-transform'	: 'translateX(450px) translateZ(-300px) rotateY(-45deg)',
+							'-o-transform'		: 'translateX(450px) translateZ(-300px) rotateY(-45deg)',
+							'-ms-transform'		: 'translateX(450px) translateZ(-300px) rotateY(-45deg)',
+							'transform'			: 'translateX(450px) translateZ(-300px) rotateY(-45deg)',
 							'opacity'			: 0,
 							'visibility'		: 'hidden'
 						};
 						break;
 					case 'left':
 						return {
-							'-webkit-transform'	: 'translate(-350px) scale(0.8)',
-							'-moz-transform'	: 'translate(-350px) scale(0.8)',
-							'-o-transform'		: 'translate(-350px) scale(0.8)',
-							'-ms-transform'		: 'translate(-350px) scale(0.8)',
-							'transform'			: 'translate(-350px) scale(0.8)',
-							'opacity'			: 1,
+							'-webkit-transform'	: 'translateX(0px) translateY(5px) translateZ(-200px)',
+							'-moz-transform'	: 'translateX(0px) translateY(5x)  translateZ(-200px) ',
+							'-o-transform'		: 'translateX(0px) translateY(5px) translateZ(-200px)',
+							'-ms-transform'		: 'translateX(0px) translateY(5px) translateZ(-200px)',
+							'transform'			: 'translateX(0px) translateY(5px) translateZ(-200px)',
+							'opacity'			: 0.45,
 							'visibility'		: 'visible'
 						};
 						break;
 					case 'right':
 						return {
-							'-webkit-transform'	: 'translate(350px) scale(0.8)',
-							'-moz-transform'	: 'translate(350px) scale(0.8)',
-							'-o-transform'		: 'translate(350px) scale(0.8)',
-							'-ms-transform'		: 'translate(350px) scale(0.8)',
-							'transform'			: 'translate(350px) scale(0.8)',
-							'opacity'			: 1,
+							'-webkit-transform'	: 'translateX(0px) translateY(5px) translateZ(-200px) ',
+							'-moz-transform'	: 'translateX(0px) translateY(5px) translateZ(-200px) ',
+							'-o-transform'		: 'translateX(0px) translateY(5px) translateZ(-200px) ',
+							'-ms-transform'		: 'translateX(0px) translateY(5px) translateZ(-200px) ',
+							'transform'			: 'translateX(0px)  translateY(5px) translateZ(-200px) ',
+							'opacity'			: 0.45,
 							'visibility'		: 'visible'
 						};
 						break;
 					case 'center':
 						return {
-							'-webkit-transform'	: 'translate(0px) scale(1)',
-							'-moz-transform'	: 'translate(0px) scale(1)',
-							'-o-transform'		: 'translate(0px) scale(1)',
-							'-ms-transform'		: 'translate(0px) scale(1)',
-							'transform'			: 'translate(0px) scale(1)',
+							'-webkit-transform'	: 'translateX(0px) translateZ(0px) rotateY(0deg)',
+							'-moz-transform'	: 'translateX(0px) translateZ(0px) rotateY(0deg)',
+							'-o-transform'		: 'translateX(0px) translateZ(0px) rotateY(0deg)',
+							'-ms-transform'		: 'translateX(0px) translateZ(0px) rotateY(0deg)',
+							'transform'			: 'translateX(0px) translateZ(0px) rotateY(0deg)',
 							'opacity'			: 1,
 							'visibility'		: 'visible'
-                            
-                          
-          
 						};
 						break;
 				};
 			
 			}
+			
 			else {
 			
 				switch( position ) {
